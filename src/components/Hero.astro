@@ -1,0 +1,51 @@
+---
+// Hero.astro
+const { name, tagline, imageUrl } = Astro.props;
+---
+
+<section class="relative overflow-hidden min-h-[80vh] flex items-center w-full">
+  <!-- Background hero image - full width and height -->
+  <div class="absolute inset-x-4 inset-y-4 z-0 rounded-xl overflow-hidden">
+    {
+      imageUrl ? (
+        <img
+          src={imageUrl}
+          alt="Background image"
+          class="w-full h-full object-cover object-center"
+        />
+      ) : (
+        <div class="w-full h-full bg-gray-200 dark:bg-gray-800" />
+      )
+    }
+    <!-- Overlay to ensure text readability -->
+    <div class="absolute inset-0 bg-black/40 w-full"></div>
+  </div>
+
+  <!-- Content positioned over the background image -->
+  <div class="container mx-auto px-4 relative z-10 w-full">
+    <!-- Name forced to stay on one line -->
+    <h1
+      class="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] m-4 font-serif tracking-tighter whitespace-nowrap overflow-hidden text-ellipsis text-white mb-6 w-full drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]"
+    >
+      {name || "YOUR NAME"}
+    </h1>
+
+    <!-- Tagline -->
+    <p class="text-xl lg:text-3xl max-w-2xl text-white/90 m-4 mb-8">
+      {
+        tagline ||
+          "Developer & Designer creating exceptional digital experiences"
+      }
+    </p>
+
+    <!-- CTA Button -->
+    <div class="mt-4 m-4">
+      <a
+        href="http://linkedin.com/in/maemariamendoza"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 text-lg inline-block"
+      >
+        Connect on LinkedIn
+      </a>
+    </div>
+  </div>
+</section>

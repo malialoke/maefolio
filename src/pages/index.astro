@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import AboutMe from "../components/AboutMe.astro"; // Add this import
+import ProjectGrid from "../components/ProjectGrid.astro";
+import Skills from "../components/Skills.astro";
+
+// Project data
+const projects = [
+  {
+    title: "A.P. Human Geography",
+    description:
+      "I've created the scope and sequence and developed several lessons for an Advanced Placement course on Human Geography.",
+    image: "/images/content-aphugeo.png",
+    tags: ["Content Development", "Instructional Design", "Video Scripting"],
+    url: "https://vimeo.com/1085517400/b557452f04",
+  },
+  {
+    title: "Edmentum Ethnic Studies",
+    description:
+      "I drafted the scope and sequence and standards alignment, and authored content for Edmentum's Ethnic Studies course.",
+    image: "/images/content-hsestudies-1.png",
+    tags: [
+      "Content Development",
+      "Instructional Design",
+      "Standards Alignment",
+      "Video Scripting",
+    ],
+    url: "https://www.edmentum.com/resources/videos/feature-teaser-ethnic-studies/",
+  },
+  {
+    title: "Apex U.S. History Survey",
+    description:
+      "I developed and reviewed content for Apex Learning's national U.S. History Survey course.",
+    image: "/images/content-hsushsurvey.png",
+    tags: ["Content Development", "Video Scripting"],
+    url: "https://cdn.apexlearning.com/course_pdfs/264-cs.pdf",
+  },
+];
+
+// Sample skills data
+const skills = [
+  {
+    name: "Design and Development",
+    items: [
+      "Instructional Design",
+      "Content Design",
+      "Content Writing",
+      "Front-end Development",
+    ],
+  },
+  {
+    name: "Subject Matter Expertise",
+    items: [
+      "K-12 Social Studies",
+      "K-12 English",
+      "Honors and College Prep",
+      "Advanced Placement (AP)",
+    ],
+  },
+  {
+    name: "Review and Alignment",
+    items: [
+      "Developmental Editing",
+      "Lexile and Flesch-Kincaid",
+      "Standards Alignment",
+      "Copyediting and Style",
+    ],
+  },
+  {
+    name: "Technical Skills",
+    items: [
+      "HTML/CSS, Astro",
+      "Adobe Creative Cloud",
+      "Adobe Photoshop",
+      "Adobe Premiere",
+    ],
+  },
+];
+---
+
+<Layout title="Mae Mendoza, Content Design and Subject Matter Expert">
+  <!-- Hero section always comes first -->
+  <Hero
+    name="hi, i'm mae."
+    tagline="CONTENT DESIGN + SUBJECT MATTER EXPERTISE"
+    imageUrl="/images/Hero.png"
+  />
+
+  <!-- About Me section between Hero and Projects -->
+  <AboutMe />
+
+  <!-- Projects section comes before Skills -->
+  <ProjectGrid projects={projects} />
+
+  <!-- Skills section comes after Projects -->
+  <Skills skills={skills} />
+</Layout>
